@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-app.include_router(router, prefix="/chat", tags="chat")
+app.include_router(router, prefix="/chat", tags=["chat"])
 
 @app.get("/")
 def root():
