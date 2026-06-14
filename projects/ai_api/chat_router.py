@@ -9,5 +9,4 @@ router = APIRouter()
 
 @router.post("")
 def chat_now (req: ChatRequest):
-    print("Good start")
     return gen_res(req.qry)

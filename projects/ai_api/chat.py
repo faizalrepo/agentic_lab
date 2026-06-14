@@ -11,12 +11,16 @@ openrouter_api = os.getenv("OPENROUTER_KEY")
 
 client = genai.Client()
 
+class Response(BaseModel):
+    response: str
 
-def gen_res(query: str) -> str:
+
+def gen_res(query: str) -> dict:
 
     response: GenerateContentResponse = client.models.generate_content(
-      model="gemini-3-flash-preview",
+      model="gemini-3.5-flash",
       contents=query
     )
 
-    return f"Got response: {response.text}"
+    # return f"Got response: {response.text}"
+    return Response(response=response.text)
